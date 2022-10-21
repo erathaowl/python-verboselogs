@@ -8,10 +8,10 @@ verboselogs: Verbose logging level for Python's logging module
    :target: https://coveralls.io/r/xolox/python-verboselogs?branch=master
 
 The verboselogs_ package extends Python's logging_ module to add the log levels
-NOTICE_, SPAM_, SUCCESS_ and VERBOSE_:
+NOTICE_, TRACE_, SUCCESS_ and VERBOSE_:
 
 - The NOTICE level sits between the predefined WARNING and INFO levels.
-- The SPAM level sits between the predefined DEBUG and NOTSET levels.
+- The TRACE level sits between the predefined DEBUG and NOTSET levels.
 - The SUCCESS level sits between the predefined WARNING and ERROR levels.
 - The VERBOSE level sits between the predefined INFO and DEBUG levels.
 
@@ -95,7 +95,7 @@ and configurable logging:
 
    # Configure logger for requested verbosity.
    if verbosity >= 4:
-       logger.setLevel(logging.SPAM)
+       logger.setLevel(logging.TRACE)
    elif verbosity >= 3:
        logger.setLevel(logging.DEBUG)
    elif verbosity >= 2:
@@ -138,7 +138,7 @@ Overview of logging levels
 --------------------------
 
 The table below shows the names, `numeric values`_ and descriptions_ of the
-predefined log levels and the VERBOSE, NOTICE, and SPAM levels defined by this
+predefined log levels and the VERBOSE, NOTICE, and TRACE levels defined by this
 package, plus some notes that I added.
 
 ========  =====  =============================  =============================
@@ -150,7 +150,7 @@ NOTSET    0      When a logger is created, the  This level isn't intended to
                  created with level WARNING).   set to NOTSET its effective
                                                 level will be inherited from
                                                 the parent logger.
-SPAM      5      Way too verbose for regular
+TRACE      5      Way too verbose for regular
                  debugging, but nice to have
                  when someone is getting
                  desperate in a late night
@@ -222,7 +222,7 @@ This software is licensed under the `MIT license`_.
 .. _Pylint: https://pypi.python.org/pypi/pylint
 .. _PyPI: https://pypi.python.org/pypi/verboselogs
 .. _Read the Docs: https://verboselogs.readthedocs.io
-.. _SPAM: http://verboselogs.readthedocs.io/en/latest/api.html#verboselogs.SPAM
+.. _TRACE: http://verboselogs.readthedocs.io/en/latest/api.html#verboselogs.TRACE
 .. _SUCCESS: http://verboselogs.readthedocs.io/en/latest/api.html#verboselogs.SUCCESS
 .. _VERBOSE: http://verboselogs.readthedocs.io/en/latest/api.html#verboselogs.VERBOSE
 .. _VerboseLogger: http://verboselogs.readthedocs.io/en/latest/api.html#verboselogs.VerboseLogger

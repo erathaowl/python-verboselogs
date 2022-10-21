@@ -7,18 +7,18 @@
 """
 Custom log levels for Python's :mod:`logging` module.
 
-The :mod:`verboselogs` module defines the :data:`NOTICE`, :data:`SPAM`,
+The :mod:`verboselogs` module defines the :data:`NOTICE`, :data:`TRACE`,
 :data:`SUCCESS` and :data:`VERBOSE` constants, the :class:`VerboseLogger` class
 and the :func:`add_log_level()` and :func:`install()` functions.
 
 At import time :func:`add_log_level()` is used to register the custom log
-levels :data:`NOTICE`, :data:`SPAM`, :data:`SUCCESS` and :data:`VERBOSE` with
+levels :data:`NOTICE`, :data:`TRACE`, :data:`SUCCESS` and :data:`VERBOSE` with
 Python's :mod:`logging` module.
 """
 
 import logging
 
-__version__ = '1.7'
+__version__ = '1.7.1'
 """Semi-standard module versioning."""
 
 NOTICE = 25
@@ -34,14 +34,14 @@ details.
            :class:`VerboseLogger` class.
 """
 
-SPAM = 5
+TRACE = 5
 """
-The numeric value of the 'spam' log level (a number).
+The numeric value of the 'trace' log level (a number).
 
-The value of :data:`SPAM` positions the spam log level between the
+The value of :data:`TRACE` positions the trace log level between the
 :data:`~logging.DEBUG` and :data:`~logging.NOTSET` levels.
 
-:see also: The :func:`~VerboseLogger.spam()` method of the
+:see also: The :func:`~VerboseLogger.trace()` method of the
            :class:`VerboseLogger` class.
 """
 
@@ -103,8 +103,8 @@ def add_log_level(value, name):
 # Define the NOTICE log level.
 add_log_level(NOTICE, 'NOTICE')
 
-# Define the SPAM log level.
-add_log_level(SPAM, 'SPAM')
+# Define the TRACE log level.
+add_log_level(TRACE, 'TRACE')
 
 # Define the SUCCESS log level.
 add_log_level(SUCCESS, 'SUCCESS')
@@ -119,7 +119,7 @@ class VerboseLogger(logging.Logger):
     Custom logger class to support the additional logging levels.
 
     This subclass of :class:`logging.Logger` adds support for the additional
-    logging methods :func:`notice()`, :func:`spam()`, :func:`success()` and
+    logging methods :func:`notice()`, :func:`trace()`, :func:`success()` and
     :func:`verbose()`.
 
     You can use :func:`verboselogs.install()` to make :class:`VerboseLogger`
@@ -150,10 +150,10 @@ class VerboseLogger(logging.Logger):
         if self.isEnabledFor(NOTICE):
             self._log(NOTICE, msg, args, **kw)
 
-    def spam(self, msg, *args, **kw):
-        """Log a message with level :data:`SPAM`. The arguments are interpreted as for :func:`logging.debug()`."""
-        if self.isEnabledFor(SPAM):
-            self._log(SPAM, msg, args, **kw)
+    def trace(self, msg, *args, **kw):
+        """Log a message with level :data:`TRACE`. The arguments are interpreted as for :func:`logging.debug()`."""
+        if self.isEnabledFor(TRACE):
+            self._log(TRACE, msg, args, **kw)
 
     def success(self, msg, *args, **kw):
         """Log a message with level :data:`SUCCESS`. The arguments are interpreted as for :func:`logging.debug()`."""

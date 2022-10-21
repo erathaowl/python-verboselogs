@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Verbose, notice, and spam log levels for Python's logging module.
+# Verbose, notice, and trace log levels for Python's logging module.
 #
 # Author: Peter Odding <peter@peterodding.com>
 # Last Change: March 7, 2017

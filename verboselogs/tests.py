@@ -1,4 +1,4 @@
-# Verbose, notice, and spam log levels for Python's logging module.
+# Verbose, notice, and trace log levels for Python's logging module.
 #
 # Author: Peter Odding <peter@peterodding.com>
 # Last Change: August 7, 2017
@@ -36,9 +36,9 @@ class VerboseLogsTestCase(unittest.TestCase):
         """Test the :func:`~verboselogs.VerboseLogger.notice()` method."""
         self.check_custom_level('notice')
 
-    def test_spam_method(self):
-        """Test the :func:`~verboselogs.VerboseLogger.spam()` method."""
-        self.check_custom_level('spam')
+    def test_trace_method(self):
+        """Test the :func:`~verboselogs.VerboseLogger.trace()` method."""
+        self.check_custom_level('trace')
 
     def test_success_method(self):
         """Test the :func:`~verboselogs.VerboseLogger.success()` method."""
